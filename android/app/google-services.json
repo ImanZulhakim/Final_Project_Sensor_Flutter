@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "899879244772",
+    "project_id": "finalsensor-fcdc0",
+    "storage_bucket": "finalsensor-fcdc0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899879244772:android:951b2cd1442b67fc15adf1",
+        "android_client_info": {
+          "package_name": "com.example.final_project_sensor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk2J4ZdJpR3_P5bRvvfEEKiQnrRDYAXlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899879244772:android:d8e08f220a04593415adf1",
+        "android_client_info": {
+          "package_name": "com.example.final_sensor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk2J4ZdJpR3_P5bRvvfEEKiQnrRDYAXlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

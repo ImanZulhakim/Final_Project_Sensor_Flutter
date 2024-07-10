@@ -1,0 +1,32 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.0'
+        classpath 'com.google.gms:google-services:4.3.15'  // Ensure this line is added for Firebase services
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"  // Specify Kotlin version here
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    // Configure build directory for all subprojects
+    rootProject.buildDir = '../build'
+    subprojects {
+        project.buildDir = "${rootProject.buildDir}/${project.name}"
+        project.evaluationDependsOn(':app')
+    }
+}
+
+// Define a clean task to delete the build directory
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

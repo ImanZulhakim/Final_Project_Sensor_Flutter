@@ -1,0 +1,70 @@
+plugins {
+    id "com.android.application" // Keep only the necessary Android application plugin
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+// Remove the redundant com.android.library declaration
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0.0'
+}
+
+android {
+    compileSdkVersion 34  // Adjust according to your SDK version
+    buildToolsVersion "30.0.2"  // Adjust build tools version if needed
+
+    defaultConfig {
+        applicationId "com.example.final_project_sensor"  // Replace with your application ID
+        minSdkVersion 21
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        multiDexEnabled true  // Enable if needed for large projects
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            // Configure signing for release builds
+            // Example signing configuration (replace with your own)
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    // Specify Kotlin and Java compatibility options
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    // Add any additional source directories if needed
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+flutter {
+    source '../..'  // Adjust the path if needed
+}
+
+// Apply the Google Services plugin at the bottom of the file
+apply plugin: 'com.google.gms.google-services'
